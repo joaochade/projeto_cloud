@@ -2,7 +2,7 @@ name: cloud
 
 services:
   app:
-    build: .
+    image: joaochade123/cloud:latest
     container_name: api-container
     environment:
       - DATABASE_URL=postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@${POSTGRS_HOST:-db}:5432/${POSTGRES_DB:-ProjetoCloud}
