@@ -1,21 +1,27 @@
 name: cloud
 
 services:
-  db:
-    image: postgres
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 1234
-      POSTGRES_DB: ProjetoCloud
-    ports:
-      - "5432:5432"
-
   app:
     build: .
+    container_name: api-container
     environment:
-      DATABASE_URL: "postgresql://postgres:1234@db:5432/ProjetoCloud"
+      - DATABASE_URL=postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@${POSTGRS_HOST:-db}:5432/${POSTGRES_DB:-ProjetoCloud}
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     ports:
       - "8000:8000"
-    restart: always
+
+  db:
+    image: postgres
+    container_name: db-container
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER:-postgres}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-postgres}
+      - POSTGRES_DB=${POSTGRES_DB:-ProjetoCloud}
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      retries: 5
