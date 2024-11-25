@@ -13,5 +13,7 @@
 3. Por fim, é necessário ir em "Authorize", no canto superior direito, e inserir seu email e senha. Assim, uma vez autorizado, você pode fazer requests no endpoint GET, e receber como retorno uma piada geek!
 
 Link do funcionamento e uso da aplicação: https://www.youtube.com/watch?v=67Fg_k9zV-c
+
 Link para o DockerHub do projeto: https://hub.docker.com/repository/docker/joaochade123/cloud/general
+
 Link API de piadas usada: https://geek-jokes.sameerkumar.website/api?format=json
