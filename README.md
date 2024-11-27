@@ -17,3 +17,10 @@ Link do funcionamento e uso da aplicação: https://www.youtube.com/watch?v=67Fg
 Link para o DockerHub do projeto: https://hub.docker.com/repository/docker/joaochade123/cloud/general
 
 Link API de piadas usada: https://geek-jokes.sameerkumar.website/api?format=json
+
+## Parte 2:
+- Na parte 2 do projeto, foi feito o deploy da aplicação na AWS. Para isso, foi necessário criar um cluster EKS (com o nome do cluster, a região e os 2 nodes), configurar o kubectl (passando o cluster e a região), assim como os arquivos .yaml do DB e do APP. Assim, é possível ver os nodes e o cvs, e usar a aplicação "deployada" no seguinte link:
+
+http://ac3cce84cc4e1404abb7695a30a13d75-1579949756.us-east-2.elb.amazonaws.com/docs#/default/consultar_consultar_get
+
+Link para o vídeo de funcionamento da aplicação na AWS: https://www.youtube.com/watch?v=3b4qonVwobg
